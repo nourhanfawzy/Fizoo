@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book List</title>
+    </head>
+
+    <body>
+        <h1>Hello There</h1>
+
+		<h2>Libraries</h2>
+
+		<ul>
+
+		{% for l in object_list %}
+
+
+        <form action="{% url 'library-delete' l.id %}" method="get"> {% csrf_token %}
+
+        <a href = "{% url 'library-detail' l.id %}"> 
+        <li>Name = {{ l.name }}</li> </a>
+        <input type="submit" value="Delete"></input>
+        
+
+        <br></br>
+
+        </form>
+
+		{% empty %}
+    	<li>No Books yet.</li>
+		{% endfor %}
+		
+		</ul>
+
+
+        <a href= "{% url 'library-form' %}"> Create a new library </a>
+        <br>
+        <a href="{% url 'book-form' %}"> Add a new book</a>
+
+    </body>
+</html>

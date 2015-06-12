@@ -1,0 +1,31 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Library Details</title>
+    </head>
+
+    <body>
+
+    <form action="LibraryUpdate" method="get"> {% csrf_token %}
+
+        	<br></br>
+			<h3>Library Details</h3>
+			<br></br>
+			<p>Name: {{ object.name }}</p>
+
+			<p>Location: {{ object.location }}</p>
+
+			<input type="submit" value="Edit Details"></input>
+
+	</form>
+
+	<br></br>
+	<a href="{% url 'book-list' %}"> View library books</a>
+	<br>
+	<a href="{% url 'library-list' %}"> Go back</a>
+
+    </body>
+</html>

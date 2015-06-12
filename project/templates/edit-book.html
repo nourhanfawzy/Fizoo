@@ -1,0 +1,28 @@
+
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Book Details</title>
+    </head>
+
+    <body>
+
+    <form action="BookUpdate" method="post"> {% csrf_token %}
+
+        	<br></br>
+			<h3>Book Details</h3>
+			<br></br>
+			<p>Name: {{ object.name }}</p>
+			<br>
+			<p>Year: {{ object.year }}</p>
+			<br>
+			<p>About: {{ object.about }}</p>
+
+			<input type="submit" >Save</input>
+
+	</form>
+
+    </body>
+</html>
