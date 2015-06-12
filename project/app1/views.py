@@ -20,6 +20,12 @@ def my_callback(sender, **kwargs):
 
 
 def listing(request):
+    """
+    List all instances of the model Book with pagination.
+    :author Nourhan Fawzy:
+    :param request:
+    :return:
+    """
     book_list = Book.objects.all()
     paginator = Paginator(book_list, 3)
 
