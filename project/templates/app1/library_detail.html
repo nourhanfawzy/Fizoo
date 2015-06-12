@@ -23,7 +23,7 @@
 	</form>
 
 	<br></br>
-	<a href="{% url 'book-list' %}"> View library books</a>
+	<a href="{% url 'book-list' object.id %}"> View library books</a>
 	<br>
 	<a href="{% url 'library-list' %}"> Go back</a>
 

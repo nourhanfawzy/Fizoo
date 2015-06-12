@@ -55,14 +55,25 @@ class BookListView(ListView):
 
 
     def get_queryset(self):
-    	self.library = get_object_or_404(Library, name=self.args[5])
-    	return Book.objects.filter(library_id=self.library)
+        """
+        @comment: Library name is not passed in GET or POST data. 
+        This was changed to pass the library ID in the url
+        @author: Nader Alexan
+        """
+        # self.library = get_object_or_404(Library, name=self.args[5])
+        return Book.objects.filter(library_id=self.kwargs['library_id'])
 
     def get_context_data(self, **kwargs):
     # Call the base implementation first to get a context
         context = super(BookListView, self).get_context_data(**kwargs)
     # Add in the publisher
-        context['library'] = self.library
+        """
+        @comment: You cannot use self.library because the class BookListView does not
+        have library as an instance variable.
+        @author: Nader Alexan
+        """
+        library = get_object_or_404(Library, id=self.kwargs['library_id'])
+        context['library'] = library
         return context
     
 

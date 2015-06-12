@@ -18,7 +18,9 @@ urlpatterns = patterns('',
     #url(r'^about/', permission_required(GreetingView.as_view(greeting="G'day"))),
     url(r'^home', TemplateView.as_view(template_name="home.html")),
 
-    url(r'^book-list$', BookListView.as_view(), name='book-list'),
+    url(
+        r'^book-list/(?P<library_id>\d+)/$',
+        BookListView.as_view(), name='book-list'),
     url(r'^book-form$', BookCreate.as_view(), name='book-form'),
 	url(r'^(?P<pk>[-\w]+)/BookDetail$', BookDetailView.as_view(), name='book-detail'),
     url(r'^(?P<pk>[-\w]+)/BookUpdate$', BookUpdate.as_view(), name='book-update'),
